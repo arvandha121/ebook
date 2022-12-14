@@ -22,6 +22,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/mysql', function () {
+    Artisan::call('migrate:rollback', ['--force' => true]);
+    Artisan::call('migrate', ['--force' => true]);
+    Artisan::call('db:seed', ['--force'=>true]);
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
