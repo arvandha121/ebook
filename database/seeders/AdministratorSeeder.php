@@ -15,32 +15,32 @@ class AdministratorSeeder extends Seeder
      */
     public function run()
     {
-        // $administrator = new \App\Models\User;
-        // $administrator->username = "administrator";
-        // $administrator->name = "Site Administrator";
-        // $administrator->email = "admin@gmail.com";
-        // $administrator->roles = json_encode(["ADMIN"]);
-        // $administrator->password = Hash::make("password");
-        // $administrator->avatar = "saat-ini-tidak-ada-file.png";
-        // $administrator->address = "Sarmili, Bintaro, Tangerang Selatan";
+        $administrator = new \App\Models\User;
+        $administrator->username = "administrator";
+        $administrator->name = "Site Administrator";
+        $administrator->email = "admin@gmail.com";
+        $administrator->roles = json_encode(["ADMIN"]);
+        $administrator->password = Hash::make("password");
+        $administrator->avatar = "saat-ini-tidak-ada-file.png";
+        $administrator->address = "Sarmili, Bintaro, Tangerang Selatan";
 
-        // $administrator->save();
+        $administrator->save();
 
-        // $this->command->info("User Admin berhasil diinsert");
+        $this->command->info("User Admin berhasil diinsert");
 
-        $datas = [
-            [
-                'username' => 'administrator',
-                'name' => 'Site Administrator',
-                'email' => 'admin@gmail.com',
-                'roles' => json_encode(["ADMIN"]),
-                'password' => Hash::make("password"),
-                'avatar' => 'saat-ini-tidak-ada-file.png',
-                'address' => 'Sarmili, Bintaro, Tangerang Selatan',
+        // $datas = [
+        //     [
+        //         'username' => 'administrator',
+        //         'name' => 'Site Administrator',
+        //         'email' => 'admin@gmail.com',
+        //         'roles' => json_encode(["ADMIN"]),
+        //         'password' => Hash::make("password"),
+        //         'avatar' => 'saat-ini-tidak-ada-file.png',
+        //         'address' => 'Sarmili, Bintaro, Tangerang Selatan',
 
-            ]
-        ];
+        //     ]
+        // ];
 
-        User::insert($datas);
+        // User::insert($datas);
     }
 }
