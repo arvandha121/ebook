@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,13 @@ Route::get('/', function () {
 });
 
 Route::get('/mysql', function () {
-    Artisan::call('migrate:rollback', ['--force' => true]);
-    Artisan::call('migrate', ['--force' => true]);
+    // Artisan::call('migrate:rollback', ['--force' => true]);
+    Artisan::call('migrate:fresh', ['--force' => true]);
     Artisan::call('db:seed', ['--force'=>true]);
+});
+
+Route::get('/config-clear', function () {
+    Artisan::call('config:clear');
 });
 
 Auth::routes();
